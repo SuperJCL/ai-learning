@@ -142,3 +142,8 @@ export async function answerQuestion(
 
   return await generateAnswer(prompt);
 }
+
+export async function searchGameItems(query: string): Promise<GameItemPoint[]> {
+  const vector = await embedQuery(query);
+  return await searchItems(vector);
+}
